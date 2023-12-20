@@ -13,29 +13,63 @@
 
 // Решение:
 
-while (true)
-{
-    Console.WriteLine("Введите целое число ('q' для выхода)");
-    string userData = Console.ReadLine();
+// while (true)
+// {
+//     Console.WriteLine("Введите целое число ('q' для выхода)");
+//     string userData = Console.ReadLine();
 
-    if (userData == "q")
+//     if (userData == "q")
+//     {
+//         Console.WriteLine("Завершение");
+//         break;
+//     }
+//     int num = Convert.ToInt32(userData);
+//     int temp = num;
+//     int sum = 0;
+//     while (temp > 0)
+//     {
+//         sum += temp % 10;
+//         temp /= 10;
+//     }
+//     if (sum % 2 == 0)
+//     {
+//         Console.WriteLine("Завершение");
+//         break;
+//     }
+// }
+
+//--------------------------------------------------
+
+// Задача 2: Задайте массив заполненный случайными
+// трёхзначными числами. Напишите программу, которая
+// покажет количество чётных чисел в массиве.
+
+// Пример: [344 452 341 125] => 2
+
+// Решение:
+
+Console.WriteLine("Введите количество чисел");
+int count = Convert.ToInt32(Console.ReadLine());
+int countNumber = 0;
+
+int[] array = new int[count];
+
+Console.Write("[");
+for (int i = 0; i < array.Length; i++)
+{
+    array[i] = new Random().Next(100, 1000);
+    if (i == count-1)
     {
-        Console.WriteLine("Завершение");
-        break;
+        Console.Write(array[i]);
     }
-    int num = Convert.ToInt32(userData);
-    int temp = num;
-    int sum = 0;
-    while (temp > 0)
+    else
     {
-        sum += temp % 10;
-        temp /= 10;
+        Console.Write(array[i] + " ");
     }
-    if (sum % 2 == 0)
+
+    if (array[i] % 2 == 0)
     {
-        Console.WriteLine("Завершение");
-        break;
+        countNumber++;
     }
 }
-
-
+Console.Write("] => " + countNumber);
