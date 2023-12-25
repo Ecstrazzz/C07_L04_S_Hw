@@ -50,26 +50,46 @@
 
 Console.WriteLine("Введите количество чисел");
 int count = Convert.ToInt32(Console.ReadLine());
-int countNumber = 0;
-
 int[] array = new int[count];
 
-Console.Write("[");
-for (int i = 0; i < array.Length; i++)
+void ArrayGen() //Заполнение массива случайными трёхзначными числами
 {
-    array[i] = new Random().Next(100, 1000);
-    if (i == count-1)
+    for (int i = 0; i < array.Length; i++)
     {
-        Console.Write(array[i]);
-    }
-    else
-    {
-        Console.Write(array[i] + " ");
-    }
-
-    if (array[i] % 2 == 0)
-    {
-        countNumber++;
+        array[i] = new Random().Next(100, 1000);
     }
 }
-Console.Write("] => " + countNumber);
+
+int GetNumber() // Количество чётных чисел в массиве
+{
+    int countNumber = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i] % 2 == 0)
+        {
+            countNumber++;
+        }
+    }
+    return countNumber;
+}
+
+void PrintArray() // Форматированный вывод чисел массива
+{
+    Console.Write("[");
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (i == count - 1)
+        {
+            Console.Write(array[i]);
+        }
+        else
+        {
+            Console.Write(array[i] + " ");
+        }
+    }
+    Console.Write("]");
+}
+
+ArrayGen();
+PrintArray();
+Console.Write(" => " + GetNumber());
