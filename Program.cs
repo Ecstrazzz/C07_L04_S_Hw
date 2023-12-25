@@ -48,37 +48,95 @@
 
 // Решение:
 
-Console.WriteLine("Введите количество чисел");
-int count = Convert.ToInt32(Console.ReadLine());
-int[] array = new int[count];
+// Console.WriteLine("Введите количество чисел");
+// int count = Convert.ToInt32(Console.ReadLine());
+// int[] array = new int[count];
 
-void ArrayGen() //Заполнение массива случайными трёхзначными числами
+// void ArrayGen() //Заполнение массива случайными трёхзначными числами
+// {
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         array[i] = new Random().Next(100, 1000);
+//     }
+// }
+
+// int GetNumber() // Количество чётных чисел в массиве
+// {
+//     int countNumber = 0;
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         if (array[i] % 2 == 0)
+//         {
+//             countNumber++;
+//         }
+//     }
+//     return countNumber;
+// }
+
+// void PrintArray() // Форматированный вывод чисел массива
+// {
+//     Console.Write("[");
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         if (i == count - 1)
+//         {
+//             Console.Write(array[i]);
+//         }
+//         else
+//         {
+//             Console.Write(array[i] + " ");
+//         }
+//     }
+//     Console.Write("]");
+// }
+
+// ArrayGen();
+// PrintArray();
+// Console.Write(" => " + GetNumber());
+
+//--------------------------------------------------
+
+// Задача 3: Напишите программу, которая перевернёт
+// одномерный массив (первый элемент станет последним,
+// второй – предпоследним и т.д.)
+
+// Пример: [1 3 5 6 7 8] => [8 7 6 5 3 1]
+
+// Решение:
+
+int[] array = new int[6];
+
+void ArrayGen() //Заполнение массива случайными числами
 {
     for (int i = 0; i < array.Length; i++)
     {
-        array[i] = new Random().Next(100, 1000);
+        array[i] = new Random().Next(1, 10);
     }
 }
 
-int GetNumber() // Количество чётных чисел в массиве
-{
-    int countNumber = 0;
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i] % 2 == 0)
-        {
-            countNumber++;
-        }
-    }
-    return countNumber;
-}
-
-void PrintArray() // Форматированный вывод чисел массива
+void PrintArray() // Форматированный вывод массива
 {
     Console.Write("[");
     for (int i = 0; i < array.Length; i++)
     {
-        if (i == count - 1)
+        if (i == array.Length - 1)
+        {
+            Console.Write(array[i]);
+        }
+        else
+        {
+            Console.Write(array[i] + " ");
+        }
+    }
+    Console.Write("]");
+}
+
+void PrintReverseArray() // Форматированный вывод перевёрнутого массива
+{
+    Console.Write("[");
+    for (int i = array.Length - 1; i > -1; i--)
+    {
+        if (i == 0)
         {
             Console.Write(array[i]);
         }
@@ -92,4 +150,5 @@ void PrintArray() // Форматированный вывод чисел мас
 
 ArrayGen();
 PrintArray();
-Console.Write(" => " + GetNumber());
+Console.Write(" => ");
+PrintReverseArray();
